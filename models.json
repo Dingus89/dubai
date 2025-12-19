@@ -1,0 +1,50 @@
+{
+      "asr_whisper_emotion": {
+        "import": "diadub.models.stt.whisper_emotion.WhisperEmotionSTT",
+        "model_id": "large-v3",
+        "device": "cuda"
+      },
+      "asr_wav2vec_emotion": {
+        "import": "diadub.models.stt.wav2vec_emotion.Wav2VecEmotionSTT",
+        "model_id": "EQ4You/emotion-recognition-wav2vec2-IEMOCAP",
+        "device": "cuda"
+      },
+      "tts_orpheus": {
+        "import": "diadub.models.tts.orpheus_tts.OrpheusTTS",
+        "model_id": "Orpheus-TTS",
+        "device": "cuda"
+      },
+      "tts_vibevoice": {
+        "import": "diadub.models.tts.vibevoice_tts.VibeVoiceTTS",
+        "model_id": "microsoft/VibeVoice-1.5B",
+        "device": "cuda"
+      },
+      "asr": {
+        "default": {
+          "backend": "whisperx",
+          "model_id": "large-v2",
+          "device": "cuda"
+        }
+      },
+      "diarization": {
+        "default": {
+          "backend": "pyannote",
+          "model_id": "pyannote/speaker-diarization",
+          "device": "cuda"
+        }
+      },
+      "tts": {
+        "default": {
+          "backend": "coqui_tts",
+          "model_id": "tts_models/en/vctk/vits",
+          "device": "cuda"
+        }
+      },
+      "translation": {
+      "default": {
+        "backend": "hf_translator",
+        "model_id": "Helsinki-NLP/opus-mt-mul-en",
+        "device": "cuda"
+      }
+    }
+  }

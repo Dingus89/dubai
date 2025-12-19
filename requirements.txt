@@ -1,0 +1,50 @@
+﻿# Core
+# numpy
+scipy
+pandas
+tqdm
+loguru
+PyYAML
+ffmpeg-python
+pydub
+librosa
+soundfile
+pySoundFile
+phonemizer
+llama-cpp-python
+PyQt5
+
+# ML / Speech
+torch
+torchaudio
+transformers
+# datasets
+# sentencepiece
+whisperx
+pyannote.audio
+# speechbrain
+noisereduce
+bitsandbytes
+accelerate
+demucs
+pyloudnorm
+
+# Optional / misc
+fastapi
+sqlalchemy
+faster-whisper
+opencv-python
+
+# Tests
+pytest
+
+# Additional Installs
+# montreal-forced-aligner
+# pyrubberband 
+
+# pyrubberband requires rubberband-cli (system) or install lib rubberband
+# Important system dependencies for high-quality pyrubberband:
+#   rubberband library/CLI (system). On Debian/Ubuntu:
+#     - sudo apt-get install librubberband2 rubberband (or build from source).
+# If you cannot install system rubberband, pyrubberband may still work  
+# but often rubberband CLI is easiest.

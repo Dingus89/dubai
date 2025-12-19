@@ -1,0 +1,23 @@
+{
+      "asr": {
+        "default": {
+          "backend": "whisperx",
+          "model_id": "openai/whisper-large-v2",
+          "device": "cuda"
+        }
+      },
+      "diarization": {
+        "default": {
+          "backend": "pyannote",
+          "model_id": "pyannote/speaker-diarization",
+          "device": "cuda"
+        }
+      },
+      "tts": {
+        "default": {
+          "backend": "coqui_tts",
+          "model_id": "tts_models/en/vctk/vits",
+          "device": "cuda"
+        }
+      }
+    }

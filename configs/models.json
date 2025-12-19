@@ -1,0 +1,7 @@
+{
+      "tts": {
+        "engine": "orpheus",
+        "model_path": "",
+        "device": "cuda"
+      }
+    }

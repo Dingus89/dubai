@@ -1,0 +1,586 @@
+===== PROJECT ANALYSIS REPORT =====
+
+   Project Root: /home/krispyai/dubAI
+
+Entry Points Detected:
+   - diadub/pipeline.py
+
+
+File Structure:
+:~/dubAI:
+analyze_project.py   diadub                       models.json        scripts
+analyze.txt         'diadub flake8 results.txt'   pytest.ini
+configs              docs                         README.md
+data                 __init__.py                  requirements.txt
+
+./configs:
+__init__.py  logging.yaml  models.json  pipeline.yaml
+
+./data:
+cache  __init__.py  samples
+
+./data/cache:
+__init__.py
+
+./data/samples:
+__init__.py
+
+./diadub:
+alignment       diarization      lipsync  pipeline.py  storage  translation
+asr             ffmpeg_utils.py  mixing   prosody      sync     utils
+audio_analysis  __init__.py      models   script       timing
+
+./diadub/alignment:
+aligner.py      align_wrapper.py  mfa_aligner.py
+align_utils.py  __init__.py       word_aligner.py
+
+./diadub/asr:
+base_asr.py  __init__.py  whisper_asr.py
+
+./diadub/audio_analysis:
+audio_features.py  __init__.py
+
+./diadub/diarization:
+__init__.py  pyannote_diarizer.py
+
+./diadub/lipsync:
+__init__.py  viseme_mapper.py
+
+./diadub/mixing:
+__init__.py  mixer.py
+
+./diadub/models:
+base_model.py                      stt                    tts_vibevoice.py
+__init__.py                        tts                    VibeVoice-1.5B
+orpheus-3b-0.1-ft-UD-Q8_K_XL.gguf  tts_engine_manager.py
+registry.py                        tts_orpheus.py
+
+./diadub/models/stt:
+README.md  wav2vec_emotion.py  whisper_emotion.py
+
+./diadub/models/tts:
+__init__.py  orpheus_tts.py  vibevoice_tts.py
+
+./diadub/models/VibeVoice-1.5B:
+config.json  model-00001-of-00003.safetensors  model.safetensors.index.json
+figures      model-00002-of-00003.safetensors  preprocessor_config.json
+__init__.py  model-00003-of-00003.safetensors  README.md
+
+./diadub/models/VibeVoice-1.5B/figures:
+Fig1.png
+
+./diadub/prosody:
+__init__.py  prosody_mapper.py
+
+./diadub/script:
+__init__.py  script_generator.py  script_parser.py
+
+./diadub/storage:
+checkpoint.py  __init__.py  __pycache__
+
+./diadub/storage/__pycache__:
+checkpoint.cpython-312.pyc
+
+./diadub/sync:
+__init__.py  sync_manager.py
+
+./diadub/timing:
+__init__.py  rubberband_wrapper.py  sync_logic.py  timewarp.py
+
+./diadub/translation:
+hf_translator.py  __init__.py  translation_manager.py
+
+./diadub/utils:
+filecheck.py  __init__.py  logging_config.py  __pycache__
+
+./diadub/utils/__pycache__:
+logging_config.cpython-312.pyc
+
+./docs:
+__init__.py  voice_cloning.md
+
+./scripts:
+assign_voice_profiles.py  debug_diarize.py    __init__.py
+cleanup_temp.py           debug_mix.py        match_speakers.py
+clone_orpheus_voice.py    debug_sample.py     run_pipeline.py
+clone_vibevoice_voice.py  debug_translate.py
+
+
+Broken Imports:
+  diadub/pipeline.py → utils
+  diadub/pipeline.py → models
+  diadub/pipeline.py → ffmpeg_utils
+  diadub/pipeline.py → mixing
+  diadub/pipeline.py → storage
+  diadub/alignment/align_wrapper.py → mfa_aligner
+  diadub/alignment/align_wrapper.py → word_aligner
+  diadub/alignment/word_aligner.py → align_utils
+  diadub/timing/timewarp.py → rubberband_wrapper
+  diadub/timing/sync_logic.py → timewarp
+  diadub/audio_analysis/audio_features.py → pyloudnorm
+  diadub/asr/whisper_asr.py → base_asr
+
+
+Unused Files (not reachable from entry points):
+  - analyze_project.py
+  - diadub/__init__.py
+  - diadub/alignment/align_utils.py
+  - diadub/alignment/align_wrapper.py
+  - diadub/alignment/aligner.py
+  - diadub/alignment/mfa_aligner.py
+  - diadub/alignment/word_aligner.py
+  - diadub/asr/base_asr.py
+  - diadub/asr/whisper_asr.py
+  - diadub/audio_analysis/audio_features.py
+  - diadub/diarization/pyannote_diarizer.py
+  - diadub/ffmpeg_utils.py
+  - diadub/lipsync/viseme_mapper.py
+  - diadub/mixing/mixer.py
+  - diadub/models/base_model.py
+  - diadub/models/registry.py
+  - diadub/models/stt/wav2vec_emotion.py
+  - diadub/models/stt/whisper_emotion.py
+  - diadub/models/tts/orpheus_tts.py
+  - diadub/models/tts/vibevoice_tts.py
+  - diadub/models/tts_engine_manager.py
+  - diadub/models/tts_orpheus.py
+  - diadub/models/tts_vibevoice.py
+  - diadub/prosody/prosody_mapper.py
+  - diadub/script/script_generator.py
+  - diadub/script/script_parser.py
+  - diadub/storage/checkpoint.py
+  - diadub/sync/sync_manager.py
+  - diadub/timing/rubberband_wrapper.py
+  - diadub/timing/sync_logic.py
+  - diadub/timing/timewarp.py
+  - diadub/translation/hf_translator.py
+  - diadub/translation/translation_manager.py
+  - diadub/utils/filecheck.py
+  - diadub/utils/logging_config.py
+  - scripts/assign_voice_profiles.py
+  - scripts/cleanup_temp.py
+  - scripts/clone_orpheus_voice.py
+  - scripts/clone_vibevoice_voice.py
+  - scripts/debug_diarize.py
+  - scripts/debug_mix.py
+  - scripts/debug_sample.py
+  - scripts/debug_translate.py
+  - scripts/match_speakers.py
+  - scripts/run_pipeline.py
+
+
+
+File Summary:
+
+FILE: analyze_project.py
+  Imports: ast, importlib, os, pathlib, sys, typing
+  Local Imports: 
+  Functions: __init__, analyze_python_file, bfs_reachable, build_call_graph, detect_entry_points, generate_log, is_hidden, main, recursively_collect_files, resolve_broken_imports
+  Classes: FileAnalysis
+  Calls: FileAnalysis, Path, add, analyze_python_file, any, append, bfs_reachable, build_call_graph, detect_entry_points, endswith, exists, find_spec, generate_log, get, getcwd, isinstance, items, join, keys, list, main, open, parse, pop, print, read_text, recursively_collect_files, relative_to, resolve_broken_imports, set, sorted, split, startswith, str, walk, write
+
+
+FILE: scripts/run_pipeline.py
+  Imports: argparse, diadub, logging, pathlib
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: ArgumentParser, Pipeline, add_argument, getLogger, info, main, parse_args, run, setup_logging
+
+
+FILE: scripts/clone_vibevoice_voice.py
+  Imports: argparse, json, librosa, numpy, pathlib, sys
+  Local Imports: 
+  Functions: extract_mels
+  Classes: 
+  Calls: Path, append, dumps, exit, extract_mels, glob, len, load, mean, melspectrogram, power_to_db, print, sorted, str, tolist, write_text
+
+
+FILE: scripts/assign_voice_profiles.py
+  Imports: json, pathlib, sys
+  Local Imports: 
+  Functions: assign_persistent_voice, load_map, save_map
+  Classes: 
+  Calls: Path, abs, assign_persistent_voice, dumps, exists, exit, hash, len, load_map, loads, mkdir, print, read_text, save_map, write_text
+
+
+FILE: scripts/debug_mix.py
+  Imports: diadub, logging
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: Mixer, basicConfig, main, mix
+
+
+FILE: scripts/cleanup_temp.py
+  Imports: pathlib, shutil, sys
+  Local Imports: 
+  Functions: 
+  Classes: 
+  Calls: Path, exists, len, print, rmtree
+
+
+FILE: scripts/debug_sample.py
+  Imports: diadub, logging
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: ModelRegistry, basicConfig, extract_audio, get, getLogger, info, main, transcribe
+
+
+FILE: scripts/match_speakers.py
+  Imports: json, os, torch, torchaudio, transformers
+  Local Imports: 
+  Functions: extract_embeddings
+  Classes: 
+  Calls: cpu, dump, endswith, extract_embeddings, from_pretrained, join, listdir, load, mean, model, no_grad, numpy, open, print, processor, splitext, squeeze, tolist
+
+
+FILE: scripts/debug_translate.py
+  Imports: diadub, logging
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: ModelRegistry, basicConfig, batch_translate, get, getLogger, info, main, zip
+
+
+FILE: scripts/debug_diarize.py
+  Imports: diadub, logging, pathlib
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: ModelRegistry, Path, basicConfig, diarize, error, exists, extract_audio, get, getLogger, info, main, str
+
+
+FILE: scripts/clone_orpheus_voice.py
+  Imports: argparse, json, pathlib, shutil, subprocess
+  Local Imports: 
+  Functions: main, normalize_and_resample
+  Classes: 
+  Calls: ArgumentParser, FileNotFoundError, Path, add_argument, dumps, enumerate, exists, glob, len, list, main, mkdir, normalize_and_resample, parse_args, print, run, sorted, str, write_text
+
+
+FILE: diadub/ffmpeg_utils.py
+  Imports: logging, pathlib, subprocess
+  Local Imports: 
+  Functions: extract_audio, replace_audio
+  Classes: 
+  Calls: Path, getLogger, info, run, str, with_name, with_suffix
+
+
+FILE: diadub/__init__.py
+  Imports: 
+  Local Imports: 
+  Functions: 
+  Classes: 
+  Calls: 
+
+
+FILE: diadub/pipeline.py
+  Imports: diadub, ffmpeg_utils, json, logging, mixing, models, numpy, os, pathlib, pydub, shutil, soundfile, storage, subprocess, tempfile, time, tqdm, typing, utils
+  Local Imports: 
+  Functions: __init__, _assemble_and_export_dialogue, _attach_speakers, _ensure_backends, _extract_segment, _ffmpeg_delay, _ffmpeg_fade_in_out, _ffmpeg_mix, _ffmpeg_mix_base_and_layers, _ffmpeg_reduce_base_gain, _ffmpeg_sidechain_duck, _get_duration, _parse_srt, _safe_run, _stage_done, _write_srt, extract_audio, get_dependent_stages, load_models_config, parse_time_text, recurse, replace_audio, run, seconds_to_srt_time
+  Classes: Pipeline
+  Calls: CheckpointManager, FileNotFoundError, Mixer, ModelRegistry, Path, ProsodyMapper, RuntimeError, TTSEngineManager, ValueError, _assemble_and_export_dialogue, _attach_speakers, _ensure_backends, _extract_segment, _ffmpeg_delay, _ffmpeg_fade_in_out, _ffmpeg_mix, _ffmpeg_reduce_base_gain, _ffmpeg_sidechain_duck, _get_duration, _parse_srt, _safe_run, _stage_done, _write_srt, abs, add, align_and_adjust, align_tts_to_target, analyze_segment, append, basicConfig, callable, close, copy2, debug, decode, diarize, dumps, enumerate, error, exception, exists, export, extend, extract_audio, float, from_file, generate_script, get, getLogger, get_artifact, get_dependent_stages, get_progress, getattr, hasattr, index, infer, info, int, invalidate_stage, is_done, isinstance, items, join, len, list, load, loads, map, max, min, mix, mkdir, numpy, overlay, parse_for_tts, parse_time_text, post_tts_pitch_shift, range, read_text, recurse, replace, replace_audio, rmtree, round, run, seconds_to_srt_time, set, set_artifact, set_channels, set_frame_rate, set_progress, set_stage_done, silent, sorted, split, splitlines, stat, str, strftime, strip, synthesize, to_dict, tqdm, transcribe, translate_lines, translate_text, type, update, verify_artifacts, warning, write, write_bytes, write_text
+
+
+FILE: diadub/alignment/align_utils.py
+  Imports: librosa, math, numpy, typing
+  Local Imports: 
+  Functions: clamp_times, mean_f0_in_interval, rms_db, split_text_words
+  Classes: 
+  Calls: float, get, isnan, len, log10, max, mean, range, replace, split, strip, yin
+
+
+FILE: diadub/alignment/align_wrapper.py
+  Imports: logging, mfa_aligner, os, pathlib, typing, word_aligner
+  Local Imports: 
+  Functions: align_words_universal
+  Classes: 
+  Calls: _mfa_align, _naive, _whisper_align, append, debug, error, get, getLogger, isinstance, lower
+
+
+FILE: diadub/alignment/word_aligner.py
+  Imports: align_utils, faster_whisper, librosa, logging, numpy, pathlib, shlex, soundfile, subprocess, typing
+  Local Imports: 
+  Functions: _load_faster_whisper, _naive_uniform_align, align_words
+  Classes: 
+  Calls: FileNotFoundError, Path, RuntimeError, WhisperModel, _load_faster_whisper, _naive_uniform_align, append, check_output, clamp_times, debug, decode, exists, float, getLogger, hasattr, info, int, len, load, max, mean_f0_in_interval, min, rms_db, round, split_text_words, str, strip, transcribe
+
+
+FILE: diadub/alignment/mfa_aligner.py
+  Imports: json, logging, os, pathlib, re, shutil, subprocess, tempfile, typing
+  Local Imports: 
+  Functions: _textgrid_to_words, align_with_mfa
+  Classes: 
+  Calls: FileNotFoundError, Path, RuntimeError, _textgrid_to_words, append, compile, copy2, error, exists, extend, finditer, float, getLogger, group, list, lower, mkdir, mkdtemp, open, read, rglob, rmtree, run, str, strip, write_text
+
+
+FILE: diadub/alignment/aligner.py
+  Imports: librosa, logging, math, numpy, pathlib, pyrubberband, shutil, soundfile, statistics, tempfile
+  Local Imports: 
+  Functions: _crossfade_concat, _rubberband_cli_available, _wav_duration, align_and_adjust, compute_dtw_path, compute_mel, warp_tts_per_subsegments, warp_tts_to_target
+  Classes: 
+  Calls: Path, RuntimeError, _crossfade_concat, _wav_duration, abs, append, array, astype, compute_dtw_path, compute_mel, concatenate, copy, copyfile, debug, dtw, exception, extend, get, getLogger, info, int, istft, keys, len, linspace, load, max, mean, melspectrogram, min, mktemp, phase_vocoder, power_to_db, pstdev, range, read, setdefault, sorted, stft, str, sum, tolist, unlink, warning, warp_tts_per_subsegments, warp_tts_to_target, which, write, zeros, zip
+
+
+FILE: diadub/lipsync/viseme_mapper.py
+  Imports: logging, math, typing
+  Local Imports: 
+  Functions: estimate_phonemes_from_word, generate_viseme_timing
+  Classes: 
+  Calls: append, default_phoneme_splitter, float, get, getLogger, len, lower, max, round
+
+
+FILE: diadub/script/script_generator.py
+  Imports: datetime, diadub, json, librosa, logging, numpy, os, pathlib, scripts, shlex, soundfile, subprocess, tempfile, torch, torchaudio, transformers, typing
+  Local Imports: 
+  Functions: _flan_polish_script, _has_cuda, analyze_audio_features, assign_persistent_voice, compute_mel, extract_audio_segment, generate_script, get_audio_duration, parse_time, read_srt, translate_text, wrap_tts_to_target, write_script
+  Classes: 
+  Calls: ASRModel, AmplitudeToDB, MelSpectrogram, Path, RuntimeError, _analyze_audio_features, _flan_polish_script, _has_cuda, _naive_uniform_align, abs, align_words_universal, analyze_audio_features, append, assign_persistent_voice, callable, compute_mel, debug, decode, dict, dumps, emotion_model, enumerate, error, exists, extract_audio_segment, float, gen, generate_viseme_timing, get, getLogger, get_audio_duration, getenv, hasattr, hash, hf_pipeline, infer, info, int, is_available, isdigit, isinstance, isnan, isoformat, items, join, len, load, load_reference_embeddings, log10, match_speaker, max, mean, min, mkdir, next, numpy, parse_time, quote, read_srt, read_text, replace, resample, round, run, split, splitlines, squeeze, str, strip, transcribe, translate_text, utcnow, wrap_tts_to_target, write_script, write_text, yin, zeros
+
+
+FILE: diadub/script/script_parser.py
+  Imports: json, logging, pathlib
+  Local Imports: 
+  Functions: load_script, parse_for_tts
+  Classes: 
+  Calls: Path, append, float, get, getLogger, load_script, loads, read_text
+
+
+FILE: diadub/timing/timewarp.py
+  Imports: logging, math, numpy, os, pathlib, rubberband_wrapper, shutil, soundfile, tempfile, typing
+  Local Imports: 
+  Functions: apply_per_word_timewarp, compute_stretch_factors
+  Classes: 
+  Calls: FileNotFoundError, Path, RuntimeError, append, compute_stretch_factors, concatenate, copy2, enumerate, exists, extend, float, get, getLogger, int, len, linspace, max, min, mkdir, mkdtemp, range, read, rmtree, round, str, time_stretch_segment, warning, write
+
+
+FILE: diadub/timing/rubberband_wrapper.py
+  Imports: logging, pathlib, pyrubberband, shutil, soundfile, subprocess
+  Local Imports: 
+  Functions: time_stretch_segment
+  Classes: 
+  Calls: FileNotFoundError, Path, ValueError, copy2, exists, getLogger, read, run, str, time_stretch, warning, which, write
+
+
+FILE: diadub/timing/sync_logic.py
+  Imports: logging, pathlib, timewarp, typing
+  Local Imports: 
+  Functions: align_tts_to_target
+  Classes: 
+  Calls: Path, ValueError, apply_per_word_timewarp, compute_stretch_factors, float, get, getLogger, info, int, mkdir
+
+
+FILE: diadub/mixing/mixer.py
+  Imports: logging, pathlib, pydub
+  Local Imports: 
+  Functions: __init__, mix
+  Classes: Mixer
+  Calls: apply_gain, export, fade_in, fade_out, from_file, getLogger, info, len, normalize, overlay, range, set_channels, set_frame_rate, silent, split_to_mono
+
+
+FILE: diadub/audio_analysis/audio_features.py
+  Imports: librosa, logging, numpy, pathlib, pyloudnorm, soundfile
+  Local Imports: 
+  Functions: analyze_segment
+  Classes: 
+  Calls: Meter, Path, debug, exists, float, getLogger, integrated_loudness, isnan, len, load, log10, mean, median, read, sqrt, str, yin
+
+
+FILE: diadub/storage/checkpoint.py
+  Imports: hashlib, json, os, pathlib, tempfile, time, typing
+  Local Imports: 
+  Functions: __init__, _file_ok, get_artifact, get_progress, invalidate_stage, is_done, load, remove, save, set_artifact, set_progress, set_stage_done, to_dict, verify_artifacts
+  Classes: CheckpointManager
+  Calls: Path, _file_ok, append, bool, close, ctime, dump, exists, get, hexdigest, isinstance, items, load, mkstemp, open, read, rename, save, setdefault, sha256, stat, str, time, unlink, update, write
+
+
+FILE: diadub/diarization/pyannote_diarizer.py
+  Imports: logging, pathlib, pyannote, typing
+  Local Imports: 
+  Functions: __init__, diarize, load_model
+  Classes: PyannoteDiarizer
+  Calls: FileNotFoundError, Path, PyannoteDiarizer, RuntimeError, append, debug, exception, exists, float, from_pretrained, get, getLogger, get_timeline, info, itersegments, itertracks, len, pipeline, str, support
+
+
+FILE: diadub/asr/base_asr.py
+  Imports: abc, typing
+  Local Imports: 
+  Functions: transcribe
+  Classes: BaseASR
+  Calls: 
+
+
+FILE: diadub/asr/whisper_asr.py
+  Imports: base_asr, faster_whisper, logging, pathlib, typing
+  Local Imports: 
+  Functions: __init__, load_model, transcribe
+  Classes: WhisperASR
+  Calls: WhisperASR, WhisperModel, append, get, getLogger, getattr, info, len, strip, transcribe, warning
+
+
+FILE: diadub/sync/sync_manager.py
+  Imports: librosa, logging, numpy, soundfile
+  Local Imports: 
+  Functions: apply_small_shift, validate_tts_alignment
+  Classes: 
+  Calls: concatenate, enumerate, getLogger, int, load, mean, read, write, zeros
+
+
+FILE: diadub/models/tts_vibevoice.py
+  Imports: logging, pathlib, soundfile, torch, transformers, typing
+  Local Imports: 
+  Functions: __init__, synthesize
+  Classes: VibeVoiceTTS
+  Calls: cpu, flatten, float, from_pretrained, generate, get, getLogger, info, is_available, no_grad, numpy, to, tokenizer, write
+
+
+FILE: diadub/models/tts_orpheus.py
+  Imports: llama_cpp, logging, pathlib, soundfile, typing
+  Local Imports: 
+  Functions: __init__, synthesize
+  Classes: OrpheusTTS
+  Calls: Llama, get, getLogger, info, model, write
+
+
+FILE: diadub/models/registry.py
+  Imports: importlib, json, pathlib
+  Local Imports: 
+  Functions: __init__, _load_config, get, list_models
+  Classes: ModelRegistry
+  Calls: FileNotFoundError, KeyError, Path, _load_config, cls, exists, get, getattr, import_module, load, open, rsplit
+
+
+FILE: diadub/models/base_model.py
+  Imports: abc, gc, torch
+  Local Imports: 
+  Functions: __enter__, __exit__, __init__, infer, load, unload
+  Classes: BaseModel
+  Calls: collect, device, empty_cache, is_available, load, unload
+
+
+FILE: diadub/models/tts_engine_manager.py
+  Imports: diadub, logging, typing
+  Local Imports: 
+  Functions: __init__, _load_orpheus, _load_vibe, synthesize
+  Classes: TTSEngineManager
+  Calls: OrpheusTTS, VibeVoiceTTS, _load_orpheus, _load_vibe, error, getLogger, synthesize
+
+
+FILE: diadub/models/stt/wav2vec_emotion.py
+  Imports: bitsandbytes, diadub, gc, logging, pathlib, torch, transformers, typing
+  Local Imports: 
+  Functions: __init__, infer, load, unload
+  Classes: Wav2VecEmotionSTT
+  Calls: RuntimeError, __init__, _clear_cuda, collect, empty_cache, exception, from_pretrained, getLogger, info, is_available, isinstance, load, lower, pipe, pipeline, str, super, unload, warning
+
+
+FILE: diadub/models/stt/whisper_emotion.py
+  Imports: diadub, faster_whisper, gc, logging, numpy, pathlib, torch, typing
+  Local Imports: 
+  Functions: __init__, infer, load, unload
+  Classes: WhisperEmotionSTT
+  Calls: RuntimeError, WhisperModel, __init__, _clear_cuda, append, collect, debug, empty_cache, get, getLogger, getattr, infer, info, is_available, isinstance, join, len, load, lower, str, strip, super, transcribe, unload, warning
+
+
+FILE: diadub/models/tts/orpheus_tts.py
+  Imports: bitsandbytes, diadub, gc, logging, pathlib, soundfile, tempfile, torch, transformers, typing
+  Local Imports: 
+  Functions: __init__, load, synth_text, unload
+  Classes: OrpheusTTS
+  Calls: Path, RuntimeError, __init__, _clear_cuda, collect, empty_cache, exception, from_pretrained, getLogger, hasattr, info, is_available, isinstance, len, load, lower, mktemp, pipe, pipeline, str, super, tobytes, unload, update, warning, write, write_bytes
+
+
+FILE: diadub/models/tts/vibevoice_tts.py
+  Imports: accelerate, bitsandbytes, diadub, gc, logging, pathlib, soundfile, tempfile, torch, transformers, typing
+  Local Imports: 
+  Functions: __init__, load, synth_text, unload
+  Classes: VibeVoiceTTS
+  Calls: Path, RuntimeError, __init__, _clear_cuda, collect, empty_cache, exception, from_pretrained, getLogger, info, is_available, isinstance, load, lower, mktemp, pipe, pipeline, str, super, unload, update, warning, write, write_bytes
+
+
+FILE: diadub/prosody/prosody_mapper.py
+  Imports: logging, math
+  Local Imports: 
+  Functions: __init__, map, semitone_from_ratio
+  Classes: ProsodyMapper
+  Calls: debug, float, get, getLogger, log2, max, min, round
+
+
+FILE: diadub/utils/filecheck.py
+  Imports: argparse, diadub
+  Local Imports: 
+  Functions: main
+  Classes: 
+  Calls: ArgumentParser, CheckpointManager, add_argument, main, parse_args, print, verify_artifacts
+
+
+FILE: diadub/utils/logging_config.py
+  Imports: logging, pathlib, yaml
+  Local Imports: 
+  Functions: setup_logging
+  Classes: 
+  Calls: Path, basicConfig, dictConfig, exists, open, safe_load
+
+
+FILE: diadub/translation/hf_translator.py
+  Imports: logging, transformers, typing
+  Local Imports: 
+  Functions: __init__, batch_translate, load_model, translate_text
+  Classes: HFTranslator
+  Calls: HFTranslator, append, decode, from_pretrained, generate, get, getLogger, info, items, to, tokenizer, translate_text
+
+
+FILE: diadub/translation/translation_manager.py
+  Imports: logging, transformers, typing
+  Local Imports: 
+  Functions: __init__, translate_lines
+  Classes: TranslationManager
+  Calls: append, debug, dict, get, getLogger, pipeline, translator, warning
+
+
+FLAKE8 RESULTS:
+--flake8 --ignore=E501,E722,E741,W504--
+./analyze_project.py:3:1: F401 'sys' imported but unused
+./diadub/alignment/align_wrapper.py:7:1: F401 'typing.Optional' imported but unused
+./diadub/alignment/align_wrapper.py:8:1: F401 'pathlib.Path' imported but unused
+./diadub/alignment/align_wrapper.py:10:1: F401 'os' imported but unused
+./diadub/alignment/aligner.py:8:1: F401 'math' imported but unused
+./diadub/alignment/aligner.py:35:5: F401 'pyrubberband as pyrb' imported but unused
+./diadub/alignment/mfa_aligner.py:21:1: F401 'json' imported but unused
+./diadub/alignment/mfa_aligner.py:23:1: F401 'os' imported but unused
+./diadub/alignment/word_aligner.py:22:1: F401 'typing.Optional' imported but unused
+./diadub/alignment/word_aligner.py:25:1: F401 'numpy as np' imported but unused
+./diadub/alignment/word_aligner.py:137:17: F401 'shlex' imported but unused
+./diadub/asr/whisper_asr.py:2:1: F401 'pathlib.Path' imported but unused
+./diadub/lipsync/viseme_mapper.py:22:1: F401 'math' imported but unused
+./diadub/mixing/mixer.py:9:1: F401 'pathlib.Path' imported but unused
+./diadub/mixing/mixer.py:42:9: F841 local variable 'envelope' is assigned to but never used
+./diadub/models/stt/wav2vec_emotion.py:1:1: F401 'pathlib.Path' imported but unused
+./diadub/models/stt/wav2vec_emotion.py:4:1: F401 'typing.Dict' imported but unused
+./diadub/models/stt/whisper_emotion.py:3:1: F401 'typing.Optional' imported but unused
+./diadub/models/stt/whisper_emotion.py:3:1: F401 'typing.List' imported but unused
+./diadub/models/stt/whisper_emotion.py:4:1: F401 'pathlib.Path' imported but unused
+./diadub/models/stt/whisper_emotion.py:5:1: F401 'numpy as np' imported but unused
+./diadub/models/tts/vibevoice_tts.py:5:1: F401 'typing.Any' imported but unused
+./diadub/models/tts_orpheus.py:2:1: F401 'pathlib.Path' imported but unused
+./diadub/models/tts_vibevoice.py:3:1: F401 'pathlib.Path' imported but unused
+./diadub/models/tts_vibevoice.py:33:9: F841 local variable 'voice' is assigned to but never used
+./diadub/models/tts_vibevoice.py:34:9: F841 local variable 'rate' is assigned to but never used
+./diadub/models/tts_vibevoice.py:35:9: F841 local variable 'pitch' is assigned to but never used
+./diadub/models/tts_vibevoice.py:36:9: F841 local variable 'gain' is assigned to but never used
+./diadub/pipeline.py:2:1: F401 'os' imported but unused
+./diadub/pipeline.py:5:1: F401 'tempfile' imported but unused
+./diadub/pipeline.py:492:29: F841 local variable 'asr_result' is assigned to but never used
+./diadub/script/script_generator.py:9:1: F401 'tempfile' imported but unused
+./diadub/script/script_generator.py:425:13: F401 'soundfile as sf' imported but unused
+./diadub/script/script_generator.py:485:27: W503 line break before binary operator
+./diadub/timing/sync_logic.py:37:5: F841 local variable 'factors' is assigned to but never used
+./diadub/timing/timewarp.py:13:1: F401 'os' imported but unused
+./diadub/timing/timewarp.py:16:1: F401 'math' imported but unused
+./diadub/translation/translation_manager.py:2:1: F401 'typing.Optional' imported but unused
+./scripts/clone_orpheus_voice.py:12:1: F401 'shutil' imported but unused
+./scripts/clone_vibevoice_voice.py:8:1: F401 'argparse' imported but unused
+./scripts/clone_vibevoice_voice.py:11:1: F401 'numpy as np' imported but unused
+./scripts/run_pipeline.py:4:1: F401 'pathlib.Path' imported but unused
